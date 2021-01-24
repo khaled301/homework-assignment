@@ -608,3 +608,50 @@ function twentytwentyone_add_ie_class() {
 	<?php
 }
 add_action( 'wp_footer', 'twentytwentyone_add_ie_class' );
+
+
+function my_scripts_method() {
+
+    wp_enqueue_style( 'style_name_01', get_stylesheet_directory_uri() . '/assets/css/bootstrap.css' );
+    wp_enqueue_style( 'style_name_02', get_stylesheet_directory_uri() . '/assets/css/swiper.css' );
+    wp_enqueue_style( 'style_name_03', get_stylesheet_directory_uri() . '/assets/css/dark.css' );
+    wp_enqueue_style( 'style_name_04', get_stylesheet_directory_uri() . '/assets/css/font-icons.css' );
+    wp_enqueue_style( 'style_name_05', get_stylesheet_directory_uri() . '/assets/css/animate.css' );
+    wp_enqueue_style( 'style_name_06', get_stylesheet_directory_uri() . '/assets/css/magnific-popup.css' );
+    wp_enqueue_style( 'style_name_07', get_stylesheet_directory_uri() . '/assets/css/responsive.css' );
+    wp_enqueue_style( 'style_name_08', get_stylesheet_directory_uri() . '/assets/css/colors.css' );
+    wp_enqueue_style( 'style_name_09', get_stylesheet_directory_uri() . '/assets/css/custom.css' );
+
+    wp_enqueue_script(
+        'custom_jquery',
+        get_stylesheet_directory_uri() . '/assets/js/jquery.js',
+        array('jquery')
+    );
+    wp_enqueue_script(
+        'custom_jquery_migrate',
+        get_stylesheet_directory_uri() . '/assets/js/jquery-migrate-1.4.1.min.js',
+        array('jquery')
+    );
+    wp_enqueue_script(
+        'custom_plugin',
+        get_stylesheet_directory_uri() . '/assets/js/plugins.js'
+    );
+    wp_enqueue_script(
+        'custom_function',
+        get_stylesheet_directory_uri() . '/assets/js/functions.js'
+    );
+    wp_enqueue_script(
+        'custom_main',
+        get_stylesheet_directory_uri() . '/assets/js/main.js'
+    );
+}
+add_action('wp_enqueue_scripts', 'my_scripts_method');
+
+
+/**
+ * Add HTML5 theme support.
+ */
+function wpdocs_after_setup_theme() {
+    add_theme_support( 'html5', array( 'search-form' ) );
+}
+add_action( 'after_setup_theme', 'wpdocs_after_setup_theme' );

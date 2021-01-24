@@ -12,63 +12,100 @@
  */
 
 ?>
-			</main><!-- #main -->
-		</div><!-- #primary -->
-	</div><!-- #content -->
+		<!-- Footer
+		============================================= -->
+		<footer id="footer" class="dark" style="background: #000;">
 
-	<?php get_template_part( 'template-parts/footer/footer-widgets' ); ?>
+			<div class="container" style="background-color: #000 !important">
 
-	<footer id="colophon" class="site-footer" role="contentinfo">
+				<!-- Footer Widgets
+				============================================= -->
+				<div class="footer-widgets-wrap clearfix">
 
-		<?php if ( has_nav_menu( 'footer' ) ) : ?>
-			<nav aria-label="<?php esc_attr_e( 'Secondary menu', 'twentytwentyone' ); ?>" class="footer-navigation">
-				<ul class="footer-navigation-wrapper">
-					<?php
-					wp_nav_menu(
-						array(
-							'theme_location' => 'footer',
-							'items_wrap'     => '%3$s',
-							'container'      => false,
-							'depth'          => 1,
-							'link_before'    => '<span>',
-							'link_after'     => '</span>',
-							'fallback_cb'    => false,
-						)
-					);
-					?>
-				</ul><!-- .footer-navigation-wrapper -->
-			</nav><!-- .footer-navigation -->
-		<?php endif; ?>
-		<div class="site-info">
-			<div class="site-name">
-				<?php if ( has_custom_logo() ) : ?>
-					<div class="site-logo"><?php the_custom_logo(); ?></div>
-				<?php else : ?>
-					<?php if ( get_bloginfo( 'name' ) && get_theme_mod( 'display_title_and_tagline', true ) ) : ?>
-						<?php if ( is_front_page() && ! is_paged() ) : ?>
-							<?php bloginfo( 'name' ); ?>
-						<?php else : ?>
-							<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
-						<?php endif; ?>
-					<?php endif; ?>
-				<?php endif; ?>
-			</div><!-- .site-name -->
-			<div class="powered-by">
-				<?php
-				printf(
-					/* translators: %s: WordPress. */
-					esc_html__( 'Proudly powered by %s.', 'twentytwentyone' ),
-					'<a href="' . esc_attr__( 'https://wordpress.org/', 'twentytwentyone' ) . '">WordPress</a>'
-				);
-				?>
-			</div><!-- .powered-by -->
+					<div class="col_half col_last">
 
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
+						<div class="widget subscribe-widget clearfix">
+							<h5 class="footer-subscribe-text" style="font-size: 21px;">Subscribe to Our Newsletter for <br class="custom-footer-break"> latest update</h5>
+							<div class="widget-subscribe-form-result"></div>
+						</div>
 
-</div><!-- #page -->
+					</div>
+
+					<div class="col_half col_last">
+
+						<div class="widget subscribe-widget clearfix">
+							<form id="widget-subscribe-form" action="include/subscribe.php" method="post" class="nobottommargin">
+								<div class="input-group divcenter">
+									<!-- <div class="input-group-prepend">
+										<div class="input-group-text"><i class="icon-email2"></i></div>
+									</div> -->
+									<input style="border-color: #ffcf39;" type="email" id="widget-subscribe-form-email" name="widget-subscribe-form-email" class="form-control required email" placeholder="Enter your Email">
+									<div class="input-group-append">
+										<button class="btn btn-success custom-button-subscribe" type="submit">
+											<i >
+												<img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/email-icon.jpg" alt="email-icon">
+											</i>
+										</button>
+									</div>
+								</div>
+							</form>
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<div id="copyrights">
+
+				<div class="container clearfix">
+
+					<div class="col_half" style="line-height: 33px; font-weight: 600;">
+						Copyrights &copy; Text goes here.
+					</div>
+
+					<div class="col_half col_last tright custom-footer-col" style="line-height: 33px; font-weight: 600;">
+						Follow us
+						<div class="fright clearfix">
+
+							<a href="#" class="social-icon si-small si-borderless si-facebook">
+								<i class="icon-facebook"></i>
+								<i class="icon-facebook"></i>
+							</a>
+
+							<a href="#" class="social-icon si-small si-borderless si-twitter">
+								<i class="icon-twitter"></i>
+								<i class="icon-twitter"></i>
+							</a>
+
+							<a href="#" class="social-icon si-small si-borderless si-instagram">
+								<i class="icon-instagram"></i>
+								<i class="icon-instagram"></i>
+							</a>
+
+						</div>
+
+						<div class="clear"></div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</footer>
+
+
+</div>
+
+
+<div id="gotoTop" class="icon-angle-up"></div>
+
 
 <?php wp_footer(); ?>
 
+
 </body>
 </html>
+
