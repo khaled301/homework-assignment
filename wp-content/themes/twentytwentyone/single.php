@@ -12,7 +12,7 @@
 get_header();
 
 
-while ( have_posts() ) : 
+while ( have_posts() ) : if( function_exists('gt_set_post_view') ) {gt_set_post_view();} 
 	the_post();
 
 ?>
@@ -165,7 +165,7 @@ while ( have_posts() ) :
 
 										<div class="container clearfix">
 											<div id="posts" class="col_full clearfix" data-layout="fitRows">
-												<?php example_cats_related_post('1') ?>
+												<?php post_cats_related_post('1') ?>
 											</div>
 										</div>
 
@@ -208,6 +208,24 @@ while ( have_posts() ) :
 		</section><!-- #content end -->
 
 
+		<section id="custom-most-viewed-post-section">
+
+			<div class="content-wrap">
+
+				<div class="container clearfix">
+					<h4>Most Viewed:</h4>
+					<hr class="related-post-horizontal-line">
+				</div>
+
+				<div class="container clearfix">
+					<?php most_viewed_post(); ?>
+				</div>
+
+			</div>
+
+		</section><!-- #content end -->
+
+
 		<section id="custom-related-post-section">
 
 			<div class="content-wrap">
@@ -219,7 +237,7 @@ while ( have_posts() ) :
 
 				<div class="container clearfix">
 					<div id="posts" class="post-grid grid-container grid-3 clearfix" data-layout="fitRows">
-						<?php example_cats_related_post('3') ?>
+						<?php post_cats_related_post('3') ?>
 					</div>
 				</div>
 

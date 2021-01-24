@@ -13857,6 +13857,110 @@ body:not(.no-transition) #wrapper,
 	max-width: 100% !important;
 }
 
+.cover-caption-holder {
+    position: absolute;
+    width: 100%;
+    z-index: 25;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.custom-category-featured{
+	color: #ffcd38 !important;
+}
+.custom-category-title{
+	overflow-x: visible !important;
+}
+.custom-category-title a{
+	margin-top: 20px;
+	font-size: 45px !important;
+	color: #fff !important;
+	font-weight: 600 !important;
+}
+
+
+.custom-category-fourmin{
+	margin-top: 20px;
+	font-size: 16px !important;
+	font-weight: 600 !important;
+	color: #fff !important;
+}
+
+.custom-category-exerpt {
+	color: #fff !important;
+	margin-top: 20px;
+}
+
+.cover-caption-holder .more-link{
+    font-size: 16px !important;
+    border: none !important;
+    color: #fff !important;
+    font-weight: 600 !important;
+    font-style: normal !important;
+    font-family: 'Montserrat' !important;
+}
+
+.custom-category-cover-small-col-fourmin{
+	color: #fff !important;
+	font-size: 14px !important;
+}
+
+.custom-category-cover-small-col-title{
+	font-size: 19px !important;
+	font-weight: 400 !important;
+	color: #fff !important;
+}
+
+.custom-category-cover-small-col-hr {
+    margin-top: 1rem !important;
+    margin-bottom: 1rem !important;
+    border: 0 !important;
+    border-top: 2px solid #ffcd38 !important;
+	margin-bottom: 10px !important;
+}
+
+.custom-category-cover-small-col-holder{
+	position: relative !important;
+}
+
+.most-viewed-post-details{
+    position: absolute;
+    width: 70%;
+    bottom: -55%;
+	left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    padding-top: 30px;
+}
+
+.most-viewed-image-holder .post-thumbnail .post-thumbnail-inner img{
+	height: 400px !important;
+}
+
+.most-viewed-post-details h2{
+
+margin-bottom: 10px !important;
+
+}
+.most-viewed-post-details .custom-entry-wrapper {
+    padding-top: 40px !important;
+}
+
+.custom-most-viewed-col .entry-image .post-thumbnail .post-thumbnail-inner img{
+	height: 450px !important;
+}
+
+#custom-most-viewed-post-section{
+	padding-top: 0 !important;
+    padding-bottom: 140px !important;
+}
+
+#custom-most-viewed-post-section {
+	padding-top: 10px !important;
+}
+
 @media (min-width: 1200px) {
 	#header, #header-wrap, #logo img {
 		height: 150px;
@@ -14064,6 +14168,42 @@ body:not(.no-transition) #wrapper,
 
 	#custom-related-post-section .content-wrap{
 		padding-bottom: 20px !important;
+	}
+
+	#custom-most-viewed-post-section .entry-content p{
+		font-size: 12px !important;
+	}
+
+	#custom-most-viewed-post-section .entry-title h2 a {
+		font-size: 14px !important;
+	}
+
+	#custom-most-viewed-post-section .related-post-subtitle {
+		position: relative;
+		margin-bottom: 10px;
+		font-size: 12px !important;
+		color: #000;
+		font-weight: 600;
+	}
+
+	#custom-most-viewed-post-section .more-link{
+		font-size: 14px !important;
+	}
+
+	#custom-most-viewed-post-section .most-viewed-post-details {
+		position: absolute;
+		width: 90%;
+		bottom: -68%;
+		left: 50%;
+		transform: translateX(-50%);
+		-webkit-transform: translateX(-50%);
+		-moz-transform: translateX(-50%);
+		padding-top: 30px;
+	}
+
+	.fright {
+		position: relative;
+		left: 50% !important;
 	}
 
 }

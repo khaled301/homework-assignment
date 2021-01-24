@@ -9,6 +9,8 @@
  * @since 1.0.0
  */
 
+$description = get_the_archive_description();
+
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>

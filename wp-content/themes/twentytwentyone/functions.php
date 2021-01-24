@@ -659,7 +659,7 @@ add_action( 'after_setup_theme', 'wpdocs_after_setup_theme' );
 
 // Related Posts
 
-function example_cats_related_post($post_number) {
+function post_cats_related_post($post_number) {
 
     $post_id = get_the_ID();
     $cat_ids = array();
@@ -685,30 +685,30 @@ function example_cats_related_post($post_number) {
     if($related_cats_post->have_posts()):
          while($related_cats_post->have_posts()): $related_cats_post->the_post(); ?>
 
-				<div class="entry clearfix">
+                <div class="entry clearfix">
 
-					<div class="custom-entry-wrapper">
-						<div class="entry-image">
-							<a href="<?php the_permalink(); ?>"><?php twenty_twenty_one_post_thumbnail(); ?></a>
-						</div>
+                    <div class="custom-entry-wrapper">
+                        <div class="entry-image">
+                            <a href="<?php the_permalink(); ?>"><?php twenty_twenty_one_post_thumbnail(); ?></a>
+                        </div>
 
-						<div class="custom-entry-content-holder">
+                        <div class="custom-entry-content-holder">
 
-							<div class="related-post-subtitle"><span>4 Min Read</span></div>
+                            <div class="related-post-subtitle"><span>4 Min Read</span></div>
 
-							<div class="entry-title">
-								<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-							</div>
+                            <div class="entry-title">
+                                <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+                            </div>
 
-							<div class="entry-content">
-								<a href="<?php the_permalink(); ?>"class="more-link">READ MORE</a>
-							</div>
+                            <div class="entry-content">
+                                <a href="<?php the_permalink(); ?>"class="more-link">READ MORE</a>
+                            </div>
 
-						</div>
+                        </div>
 
-					</div>
+                    </div>
 
-				</div>
+                </div>
 
         <?php endwhile;
 
@@ -717,3 +717,162 @@ function example_cats_related_post($post_number) {
      endif;
 
 }
+
+function most_viewed_post() {
+
+	$most_viewed_array = array();
+
+	query_posts('meta_key=post_views_count&orderby=meta_value_num&order=DESC&limit=1');
+	if (have_posts()) : while (have_posts()) : the_post();
+	?>
+		
+			<div class="col_full clearfix custom-most-viewed-col">
+				<div class="entry-image">
+					<a href="<?php the_permalink(); ?>"><?php twenty_twenty_one_post_thumbnail(); ?></a>
+				</div>
+
+                <div class="most-viewed-post-details">
+                    <div class="entry clearfix">
+
+						<div class="custom-entry-wrapper">
+
+							<div class="custom-entry-content-holder">
+
+								<div class="related-post-subtitle"><span>4 Min Read</span></div>
+
+								<div class="entry-title">
+									<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+								</div>
+
+								<div class="entry-content">
+
+									<p>
+										<?php echo get_the_excerpt( )?>
+									</p>
+									<a href="<?php the_permalink(); ?>"class="more-link">READ MORE</a>
+								</div>
+
+							</div>
+
+						</div>
+                	</div>
+				</div>
+			</div>
+			
+	
+	<?php
+	break;
+	endwhile; endif;
+	wp_reset_query();
+
+}
+
+// Trash function
+function cats_related_post_for_archive($post_number, $excluded_posts) {
+
+    $post_id = get_the_ID();
+    $cat_ids = array();
+    $categories = get_the_category( $post_id );
+
+    if(!empty($categories) && !is_wp_error($categories)):
+        foreach ($categories as $category):
+            array_push($cat_ids, $category->term_id);
+        endforeach;
+    endif;
+
+    $current_post_type = get_post_type($post_id);
+
+    $query_args = array( 
+        'category__in'   => $cat_ids,
+        'post_type'      => $current_post_type,
+        'post__not_in'    => $excluded_posts,
+        'posts_per_page'  => $post_number,
+     );
+
+    $related_cats_post = new WP_Query( $query_args );
+
+    if($related_cats_post->have_posts()):
+         while($related_cats_post->have_posts()): $related_cats_post->the_post(); ?>
+
+			<div class="custom-category-cover-small-col-holder">
+				<p class="custom-category-cover-small-col-fourmin">4 Min Read</p>
+				<h4 class="custom-category-cover-small-col-title"><?php the_title(); ?></h4>
+				<hr class="custom-category-cover-small-col-hr">
+			</div>
+
+        <?php endwhile;
+
+        // Restore original Post Data
+        wp_reset_postdata();
+     endif;
+
+}
+
+//trash function
+function cats_related_post_for_archive_extra_function($post_number, $excluded_posts) {
+
+    $post_id = get_the_ID();
+    $cat_ids = array();
+    $categories = get_the_category( $post_id );
+	$stored_id = array();
+
+    if(!empty($categories) && !is_wp_error($categories)):
+        foreach ($categories as $category):
+            array_push($cat_ids, $category->term_id);
+        endforeach;
+    endif;
+
+    $current_post_type = get_post_type($post_id);
+
+    $query_args = array( 
+        'category__in'   => $cat_ids,
+        'post_type'      => $current_post_type,
+        'post__not_in'    => $excluded_posts,
+        'posts_per_page'  => $post_number,
+     );
+
+    $related_cats_post = new WP_Query( $query_args );
+
+    if($related_cats_post->have_posts()):
+         while($related_cats_post->have_posts()): $related_cats_post->the_post(); ?>
+
+				<?php array_push($stored_id, get_the_id()); ?>
+
+               <div class="entry clearfix">
+
+                    <div class="custom-entry-wrapper">
+                        <div class="entry-image">
+                            <a href="<?php the_permalink(); ?>"><?php twenty_twenty_one_post_thumbnail(); ?></a>
+                        </div>
+
+                        <div class="custom-entry-content-holder">
+
+                            <div class="related-post-subtitle"><span>4 Min Read</span></div>
+
+                            <div class="entry-title">
+                                <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+                            </div>
+
+                            <div class="entry-content">
+                                <a href="<?php the_permalink(); ?>"class="more-link">READ MORE</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+			<?php break;
+
+        	endwhile;
+
+        // Restore original Post Data
+        wp_reset_postdata();
+     endif;
+
+	return $stored_id;
+
+}
+
+

@@ -16,15 +16,7 @@ get_header();
                 <img class="d-block w-100" src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/home-cover-one.jpg" alt="first-slide-image">
                 <div class="carousel-caption">
                     <div class="carousel-caption-holder">
-                        <h1 class="slideInDown animated carousel-caption-h1" data-animate="slideInDown">assignment UNIVERSITY CAMPUS</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/home-cover-one.jpg" alt="second-slide-image">
-                <div class="carousel-caption">
-                    <div class="carousel-caption-holder">
-                        <h1 class="slideInDown animated carousel-caption-h1" data-animate="slideInDown">PROPOSED UNIVERSITY, AMULIA</h1>
+                        <h1 class="slideInDown animated carousel-caption-h1" data-animate="slideInDown">Assignment</h1>
                     </div>
                 </div>
             </div>

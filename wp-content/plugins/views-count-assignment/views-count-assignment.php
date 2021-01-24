@@ -54,7 +54,7 @@ function deactivate() {
     );
 
     // // Backup plugin folder for accidental delete
-    // backup_plugin_folder_for_accidental_delete_operation();
+    backup_plugin_folder_for_accidental_delete_operation();
 
     //DB flush rewrite rules
     flush_rewrite_rules();
